@@ -16,30 +16,9 @@
 * 2.10、PCA降维
 * 2.11、神经网络
 
-
 ## 1、模型的常用方法
 
-sklearn中所有的模型都有四个固定且常用的方法，分别是model.fit、model.predict、model.get\_params、model.score。
-
-```python
-# 用于模型训练
-model.fit(X_train, y_train)
-```
-
-```python
-# 用于模型预测
-model.predict(X_test)
-```
-
-```python
-# 获得模型参数
-model.get_params()
-```
-
-```python
-# 进行模型打分
-model.score(X_test, y_test)
-```
+sklearn中所有的模型都有四个固定且常用的方法，分别是model.fit(X_train, y_train)、model.predict(X_test)、model.get_params()、model.score(X_test, y_test)。
 
 ### 2、sklearn中机器学习模型的实现
 
@@ -80,7 +59,6 @@ model.fit(X_train,y_train)
 # 预测，比较结果
 print(model.score(X_test,y_test))
 ```
-
 
 ### 2.2、逻辑回归
 
@@ -169,7 +147,6 @@ model.fit(X_train,y_train)
 # 预测，比较结果
 print(model.score(X_test,y_test))
 ```
-
 
 ### 2.4、决策树
 
@@ -283,7 +260,6 @@ model.fit(X_train,y_train)
 print(model.score(X_test,y_test))
 ```
 
-
 ### 2.6、SVM(支持向量机)
 
 支持向量机可以解决分类问题，SVM的关键在于核函数，其作用为将低位向量映射到高维空间里，使得其变得线性可分。
@@ -321,7 +297,6 @@ model.fit(X_train,y_train)
 # 预测，比较结果
 print(model.score(X_test,y_test))
 ```
-
 
 ### 2.7、KNN（K-近邻算法）
 
@@ -398,8 +373,6 @@ model.fit(X_train,y_train)
 # 预测，比较结果
 print(model.score(X_test,y_test))
 ```
-
-
 
 ### 2.9 K均值聚类模型（K-Means Clustering）
 
