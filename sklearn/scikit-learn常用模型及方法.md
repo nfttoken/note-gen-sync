@@ -4,23 +4,73 @@
 
 2、sklearn中机器学习模型的实现
 
-* 2.1、线性回归
-* 2.2、逻辑回归
-* 2.3、朴素贝叶斯
-* 2.4、决策树
-* 2.5、随机森林
-* 2.6、SVM(支持向量机）
-* 2.7、KNN（K-近邻算法）
-* 2.8、adaboost
-* 2.9、K均值聚类（K-Means）
-* 2.10、PCA降维
-* 2.11、神经网络
+2.1、线性回归
+
+2.2、逻辑回归
+
+2.3、朴素贝叶斯
+
+2.4、决策树
+
+2.5、随机森林
+
+2.6、SVM(支持向量机）
+
+2.7、KNN（K-近邻算法）
+
+2.8、adaboost 、Xgboost 、 GBClassifier
+
+2.9、K均值聚类（K-Means）
+
+2.10、PCA降维
+
+2.11、神经网络
 
 ## 1、模型的常用方法
 
 sklearn中所有的模型都有四个固定且常用的方法，分别是model.fit(X_train, y_train)、model.predict(X_test)、model.get_params()、model.score(X_test, y_test)。
 
-### 2、sklearn中机器学习模型的实现
+### 1.1 十大模型的调用代码总结
+
+from sklearn.linear_model     import LinearRegression  LogisticRegression
+
+from sklearn.tree                   import DecisionTreeClassifier
+from sklearn.ensemble          import RandomForestClassifier
+
+from sklearn.neighbors         import KNeighborsClassifier
+from sklearn.ensemble          import AdaBoostClassifier  GradientBoostingClassifier
+
+from sklearn.svm                   import SVC
+
+from sklearn.cluster               import KMeans
+
+import sklearn.naive_bayes as baye
+
+import xgboost as xgb
+
+
+Linear = LinearRegression(fit_intercept=True,normalize=False,copy_X=True,n_jobs=1)
+LR = LogisticRegression(penalty='l2',dual=False,C=1.0,n_jobs=1)
+
+DT=DecisionTreeClassifier(criterion='entropy',max_depth=None,min_samples_split=2,min_samples_leaf=1,max_features=None)
+
+RF = RandomForestClassifier(n_estimators=200)
+
+bayes = bayes.BernoulliNB(alpha=1.0,binarize=0.0,fit_prior=True,class_prior=None)
+
+bayes = bayes.GaussianNB()
+
+SVC = SVC(C = 1,kernel='linear')
+
+KNN = KNeighborsClassifier(n_neighbors=5,n_jobs=1)
+
+ada = AdaBoostClassifier(n_estimators=100,learning_rate=0.1)
+
+kmeans = KMeans(n_clusters=3, random_state=42)
+
+XGB = xgb.XGBClassifier(max_depth=3, n_estimators=200, learn_rate=0.01)
+
+## 2、sklearn中机器学习模型的实现
 
 ### 2.1、线性回归
 
