@@ -48,7 +48,6 @@ import sklearn.naive_bayes as baye
 
 import xgboost as xgb
 
-
 Linear = LinearRegression(fit_intercept=True,normalize=False,copy_X=True,n_jobs=1)
 LR = LogisticRegression(penalty='l2',dual=False,C=1.0,n_jobs=1)
 
@@ -423,6 +422,14 @@ model.fit(X_train,y_train)
 # 预测，比较结果
 print(model.score(X_test,y_test))
 ```
+
+XGBoost超参数调优
+
+```python
+from 
+```
+
+
 
 ### 2.9 K均值聚类模型（K-Means Clustering）
 
