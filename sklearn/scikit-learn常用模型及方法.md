@@ -423,10 +423,40 @@ model.fit(X_train,y_train)
 print(model.score(X_test,y_test))
 ```
 
-XGBoost超参数调优
+XGBoost超参数调优：
 
 ```python
-from 
+from sklearn.model_selection import RandomizedSearchCV
+
+#定义参数搜索空间
+parm_grid = {
+'n_estimators':[50,100,200],
+'max_depth':[3,6,9],
+'learning_rate':[0.01,0.1,0.2],
+'subsample':[0.8,0.9,1.0]
+}
+
+#随机搜索参数优化
+xgb_model = xgb.XGBClassifier(random_state=42)
+random_search = RandomizedSearchCV(
+estimator = xgb_model,
+param_distributions=parm_grid,
+n_iter=20,
+cv=5,
+scoring='accuracy',
+random_state=42,
+n_job=-1
+)
+
+random_search.fit(X_train,y_train)
+
+print(f"最佳参数：{random_search.best_params_}")
+print(f"最佳交叉验证得分：{random_search.best_score_:.4f}")
+
+#使用最佳参数预测
+best_model=random_search.best_estimator_
+y_pred_best=best_model.predict(X_test)
+print(f"测试集准确率：{accuracy_score(y_test,y_pred_best)}:.4f")
 ```
 
 
