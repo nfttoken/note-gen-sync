@@ -459,8 +459,6 @@ y_pred_best=best_model.predict(X_test)
 print(f"测试集准确率：{accuracy_score(y_test,y_pred_best)}:.4f")
 ```
 
-
-
 ### 2.9 K均值聚类模型（K-Means Clustering）
 
 K均值聚类模型（K-Means Clustering）是一种无监督学习算法，用于将数据集划分为K个不同的簇。该算法通过迭代地将数据点分配到最近的簇中，并更新簇的中心，直到达到收敛。
@@ -547,6 +545,11 @@ array([1, 0, 1, 0, 1])
 ```
 
 scikit-learn.org.cn [集成模型]([API 参考-scikit-learn中文社区](https://scikit-learn.org.cn/lists/3.html#sklearn.ensemble%EF%BC%9A%E9%9B%86%E6%88%90%E6%96%B9%E6%B3%95))
+
+SKlearn官方给的一个模型选择思路:
+
+![SKlearn官方给的一个模型选择思路.png](https://cdn.jsdelivr.net/gh/nfttoken/note-gen-image-sync@main/4f6db4f2-593e-4ce1-9236-7da9cef06d70.png)
+
 
 模型2.1-2.8原文[链接](https://[机器学习好伙伴之scikit-learn的使用——常用模型及其方法\_nfstream机器学习可用的模型-CSDN博客](https://blog.csdn.net/weixin_44791964/article/details/100561879))：
 
