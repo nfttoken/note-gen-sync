@@ -28,3 +28,6 @@
 * Normalizer （基于矩阵的行，将样本向量转换为单位向量）
   其目的在于样本向量在点乘运算或其他核函数计算相似性时，拥有统一的标准
   常见用于**文本分类**和**聚类**、logistic回归中也会使用，有效防止过拟合
+
+
+![数值标准化--做模型前.png](https://cdn.jsdelivr.net/gh/nfttoken/note-gen-image-sync@main/9f2bd6d2-ce6b-4639-b6bd-4f51d7150fea.png)
