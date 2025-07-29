@@ -69,6 +69,8 @@ kmeans = KMeans(n_clusters=3, random_state=42)
 
 XGB = xgb.XGBClassifier(max_depth=3, n_estimators=200, learn_rate=0.01)
 
+**model** = xgb.XGBRegressor(objective=**'**reg:squarederror**'**, n\_estimators=**100**)
+
 ## 2、sklearn中机器学习模型的实现
 
 ### 2.1、线性回归
@@ -385,7 +387,7 @@ model.fit(X_train,y_train)
 print(model.score(X_test,y_test))
 ```
 
-### 2.8、adaboost
+### 2.8、adaboost  XGBoost
 
 adaboost（Adaptive Boosting）是一种由弱分类器构成的强分类器，即针对同一个训练集训练不同的分类器（弱分类器），然后把这些弱分类器集合起来，构成一个更强的最终分类器（强分类器）。
 
@@ -397,30 +399,50 @@ AdaBoostClassifier(n_estimators=100,learning_rate=0.1)
 其主要使用的参数为：
 **1、n\_estimators： 弱分类器的数量
 2、learning\_rate：学习率**
-应用方式如下：
+
+XGBClassifier XGBRegressor应用方式如下：
 
 ```python
-# 载入数据集
+
+import numpy as np
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import AdaBoostClassifier  
-import numpy as np
+from sklearn.ensemble import AdaBoostClassifier
+
+# 使用XGBoost时引入
+import xgboost as xgb
+from sklearn.metrics import mean_squared_error
 
 # 生成数据库
+
 data_X, data_Y = datasets.make_classification(
-    n_samples=300, n_features=2,
-    n_redundant=0, n_informative=2, 
-    random_state=21, n_clusters_per_class=2,
-    scale=100)
-# 对数据库进行划分  
+n_samples=300, n_features=2,
+n_redundant=0, n_informative=2,
+random_state=21, n_clusters_per_class=2,
+scale=100)
+
+# 对数据库进行划分
+
 X_train, X_test, y_train, y_test = train_test_split(data_X, data_Y, test_size=0.3)
 
 # 建立AdaBoost模型
-model = AdaBoostClassifier(n_estimators=100,learning_rate=0.1)
+
+model = AdaBoostClassifier(n_estimators=100,learning_rate=0.1，random_state=42)
+
+# Initialize and train the XGBRegressor model
+
+model = xgb.XGBRegressor(objective='reg:squarederror', n_estimators=100) # objective for regression
+
 # 对模型进行训练
+
 model.fit(X_train,y_train)
+
 # 预测，比较结果
 print(model.score(X_test,y_test))
+
+# 使用MSE评估模型
+mse = mean_squared_error(y_test, y_pred)
+print(f"Mean Squared Error: {mse}")
 ```
 
 XGBoost超参数调优：
@@ -549,7 +571,6 @@ scikit-learn.org.cn [集成模型]([API 参考-scikit-learn中文社区](https:/
 SKlearn官方给的一个模型选择思路:
 
 ![SKlearn官方给的一个模型选择思路.png](https://cdn.jsdelivr.net/gh/nfttoken/note-gen-image-sync@main/4f6db4f2-593e-4ce1-9236-7da9cef06d70.png)
-
 
 模型2.1-2.8原文[链接](https://[机器学习好伙伴之scikit-learn的使用——常用模型及其方法\_nfstream机器学习可用的模型-CSDN博客](https://blog.csdn.net/weixin_44791964/article/details/100561879))：
 
