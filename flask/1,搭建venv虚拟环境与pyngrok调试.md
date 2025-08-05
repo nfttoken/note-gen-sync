@@ -1,6 +1,6 @@
 ## 1, 搭建虚拟环境
 
-* 1.1新建目录（也可手动新建目录）   python -m venv demo1_env
+* 1.1新建虚拟环境的目录（也可手动新建目录，只要是程序主目录的子目录就可以）   python -m venv demo1_env
 * 1.2，启动虚拟环境命令       .\demo1_env\Scripts\activate
   启动后poeershell命令行前会带有 目录名！
 * 1.3、退出虚拟环境   deactivate
@@ -8,7 +8,7 @@
 
 ## 2，flask Local Testing in colab
 
-* 2.1,安装专门的pyngrok    注意：flask-ngrok不管用！
+* 2.1,安装专门的pyngrok   （ 注意：flask-ngrok不管用！）
   !pip install pyngrok
 * 2.2，文件引入和token配置
 
